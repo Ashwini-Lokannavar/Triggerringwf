@@ -28,7 +28,7 @@ jobs:
        scp C:\actions-runner\_work\devops-rest-apis\devops-rest-apis\releaseservice\target\releaseservice-0.0.1-SNAPSHOT.jar GALILEO\svc_devops@svdthputws0010v:/TEMP
        
     - uses: convictional/trigger-workflow-and-wait@v1.3.0
-        with:
+      with:
           owner: Ashwini-Lokannavar
           repo: devops-rest-apis-postman
           github_token: ${{ secrets.TEST_KEY}}
