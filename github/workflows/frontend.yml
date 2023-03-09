@@ -30,9 +30,9 @@ jobs:
     - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
           owner: Ashwini-Lokannavar
-          repo: Triggeredwf
+          repo: devops-rest-apis-postman
           github_token: ${{ secrets.TEST_KEY}}
-          workflow_file_name: backend.yml
+          workflow_file_name: postamantest.yml
        
       
     
