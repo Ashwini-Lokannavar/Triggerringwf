@@ -1,44 +1,32 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Java CI with Maven
-
+name: workflow_01
 on:
-  push:
-    branches: [ "main" ]
-  
+  workflow_dispatch:
+     inputs:
+      workflow_02:
+        description: 'ًWorkflow 2 which will be triggered'
+        required: true
+        default: 'workflow_02'
+
+      workflow2_github_account:
+        description: 'Ashwini-Lokannavar'
+        required: true
+        default: ':userName'
+
+      workflow2_repo_github:
+        description: 'Triggeredwf'
+        required: true
+        default: ':repoName' 
 
 jobs:
   build:
-
-    runs-on: [self-hosted , F2]
+    runs-on: selfhosted, F2
 
     steps:
-    - name: step-1 - checkout to main branch from githun
-      uses: actions/checkout@v2
-     
-   
-    
-      with:
-          owner: Ashwini-Lokannavar
-          repo: Triggeredwf
-          github_token: ${{ secrets.TEST_KEY}}
-          workflow_file_name: backend.yml
-      
-      
-    
-      
-      
-       
-      
-    
-      
-      
-
-    
-      
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Test
+        run: |
+          curl -X POST https://api.github.com/repos/:userName/:Triggeredwf/.github/workflows/backend.yml \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACTIONS_KEY }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+      - uses: actions/checkout@v3
