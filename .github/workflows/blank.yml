@@ -22,11 +22,7 @@ jobs:
     - name: step-1 - checkout to main branch from githun
       uses: actions/checkout@v2
      
-    - name: Build with Maven
-      run: |
-       mvn -B clean package --file releaseservice/pom.xml 
-       scp C:\actions-runner\_work\devops-rest-apis\devops-rest-apis\releaseservice\target\releaseservice-0.0.1-SNAPSHOT.jar GALILEO\svc_devops@svdthputws0010v:/TEMP
-       
+   
     - uses: convictional/trigger-workflow-and-wait@v1.6.1
       with:
           owner: Ashwini-Lokannavar
