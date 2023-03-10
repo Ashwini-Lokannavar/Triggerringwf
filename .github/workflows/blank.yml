@@ -16,7 +16,7 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted , FactoryVm]
+    runs-on: [self-hosted , F1]
 
     steps:
     - name: step-1 - checkout to main branch from githun
