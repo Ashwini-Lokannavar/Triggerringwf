@@ -6,6 +6,10 @@ on:
       - main
 
 jobs:
+ 
+  build:
+
+    runs-on: [self-hosted , F1]
   
   call-workflow-passing-data:
     permissions:
