@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted , F2]
+    runs-on: [self-hosted ]
 
     steps:
     - name: step-1 - checkout to main branch from githun
