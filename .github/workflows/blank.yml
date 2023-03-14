@@ -1,27 +1,21 @@
-name: Java CI with Maven
+name: Call a reusable workflow
 
 on:
-  push:
+  pull_request:
     branches:
-      [ "main" ]
-  
+      - main
 
 jobs:
-  build:
+  call-workflow:
+    uses: Ashwini-Lokannavar/Triggeredwf/.github/workflows/backend.yml@v1
 
-    runs-on: [self-hosted ]
-
-    steps:
-    - name: step-1 - checkout to main branch from githun
-      uses: actions/checkout@v2
-     
-   
   call-workflow-passing-data:
     permissions:
       contents: read
       pull-requests: write
     uses: Ashwini-Lokannavar/Triggeredwf/.github/workflows/backend.yml@main
-    
-     
+    with:
+      config-path: .github/labeler.yml
     secrets:
-      token: ${{ secrets.TEST_KEY}}
+      token: ${{ secrets..TEST_KEY }}
+    
