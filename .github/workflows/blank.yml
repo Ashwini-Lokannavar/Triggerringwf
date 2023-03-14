@@ -6,8 +6,7 @@ on:
       - main
 
 jobs:
-  call-workflow:
-    uses: Ashwini-Lokannavar/Triggeredwf/.github/workflows/backend.yml@main
+  
 
   call-workflow-passing-data:
     permissions:
