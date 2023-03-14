@@ -6,15 +6,5 @@ on:
       - main
 
 jobs:
-  
-
-  call-workflow-passing-data:
-    permissions:
-      contents: read
-      pull-requests: write
-    uses: Ashwini-Lokannavar/Triggeredwf/.github/workflows/backend.yml@main
-    with:
-      config-path: .github/labeler.yml
-    secrets:
-      token: ${{ secrets.TEST_KEY }}
-    
+   call-workflow:
+    uses: Ashwini-Lokannavar/Triggeredwf/.github/workflows/backend.yml@v1
