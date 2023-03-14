@@ -17,5 +17,5 @@ jobs:
     with:
       config-path: .github/labeler.yml
     secrets:
-      token: ${{ secrets..TEST_KEY }}
+      token: ${{ secrets.TEST_KEY }}
     
